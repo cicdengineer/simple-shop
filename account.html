@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Shop | My Account</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="account">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">SS</span>
+        <span>
+          <strong>Simple Shop</strong>
+          <small>Premium everyday retail</small>
+        </span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="account.html" class="is-active">My Account</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">My Account page</p>
+          <h1>Customer profile, watchlist, and order search.</h1>
+          <p class="hero-text">Update saved customer details, review watchlist items, and search previous orders using email or phone number.</p>
+        </div>
+      </section>
+
+      <section class="two-column">
+        <div class="surface">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Profile</p>
+              <h2>Saved account details</h2>
+            </div>
+          </div>
+          <form id="accountForm" class="form-grid">
+            <label><span>Full name</span><input type="text" name="name" placeholder="Customer name"></label>
+            <label><span>Email</span><input type="email" name="email" placeholder="hello@example.com"></label>
+            <label><span>Phone number</span><input type="tel" name="phone" placeholder="+91 9876543210"></label>
+            <label class="full-span"><span>Default address</span><textarea name="address" rows="3" placeholder="Street, area, city, postal code"></textarea></label>
+            <button class="primary-button full-span" type="submit">Save account</button>
+          </form>
+        </div>
+
+        <div class="surface">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Order search</p>
+              <h2>Search by email or phone</h2>
+            </div>
+          </div>
+          <form id="orderSearchForm" class="form-grid">
+            <label><span>Email</span><input type="email" name="email" placeholder="hello@example.com"></label>
+            <label><span>Phone number</span><input type="tel" name="phone" placeholder="+91 9876543210"></label>
+            <button class="primary-button full-span" type="submit">Search orders</button>
+          </form>
+          <div id="orderSearchResults" class="stack-list empty-state">Search results will appear here.</div>
+        </div>
+      </section>
+
+      <section class="two-column">
+        <div class="surface">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Saved items</p>
+              <h2>Watchlist</h2>
+            </div>
+          </div>
+          <div id="accountWatchlist" class="stack-list empty-state">No watchlist items yet.</div>
+        </div>
+
+        <div class="surface">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Recent orders</p>
+              <h2>Latest purchases</h2>
+            </div>
+          </div>
+          <div id="recentOrders" class="stack-list empty-state">Orders placed from checkout will appear here.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

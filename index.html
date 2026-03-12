@@ -2,43 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Simple Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Shop | Modern Storefront</title>
 <link rel="stylesheet" href="style.css">
 </head>
+<body data-page="home">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">SS</span>
+        <span>
+          <strong>Simple Shop</strong>
+          <small>Premium everyday retail</small>
+        </span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="account.html">My Account</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="ghost-button" type="button" id="openWatchlistButton">Watchlist <span id="watchlistCount">0</span></button>
+        <button class="primary-button" type="button" id="openCartButton">Cart <span id="cartCount">0</span></button>
+      </div>
+    </header>
 
-<body>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Multi-category commerce demo</p>
+          <h1>Professional storefront with checkout, account, and admin workflows.</h1>
+          <p class="hero-text">
+            Browse curated products, save items to a watchlist, complete cash-on-delivery orders,
+            and manage inventory from a dedicated admin dashboard.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#catalog">Shop Products</a>
+            <a class="ghost-button" href="account.html">Track Orders</a>
+          </div>
+        </div>
 
-<header>
-<h1>My Simple Shop</h1>
-<p>Test Shopping Website</p>
-</header>
+        <div class="hero-panel">
+          <div class="metric-card">
+            <span>Catalog items</span>
+            <strong id="heroProductCount">0</strong>
+          </div>
+          <div class="metric-card">
+            <span>Saved for later</span>
+            <strong id="heroWatchlistCount">0</strong>
+          </div>
+          <div class="metric-card">
+            <span>Checkout mode</span>
+            <strong>Cash on Delivery</strong>
+          </div>
+        </div>
+      </section>
 
-<div class="products">
+      <section class="surface section-gap" id="catalog">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Home page</p>
+            <h2>Products listing</h2>
+          </div>
+          <div class="catalog-toolbar">
+            <label class="search-field">
+              <span>Search</span>
+              <input type="search" id="productSearch" placeholder="Search products or category">
+            </label>
+            <label class="search-field">
+              <span>Category</span>
+              <select id="categoryFilter">
+                <option value="all">All categories</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+      </section>
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h3>Gold Plated Necklace</h3>
-<p>₹799</p>
-<button onclick="addToCart('Gold Necklace')">Add to Cart</button>
-</div>
+      <section class="section-gap split-layout">
+        <div class="surface">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Customer tools</p>
+              <h2>Watchlist</h2>
+            </div>
+            <a class="text-link" href="account.html">Open My Account</a>
+          </div>
+          <div id="watchlistPreview" class="stack-list empty-state">
+            Save products to keep them visible here.
+          </div>
+        </div>
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h3>Temple Jewellery Set</h3>
-<p>₹1499</p>
-<button onclick="addToCart('Temple Set')">Add to Cart</button>
-</div>
+        <aside class="surface cart-panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Checkout</p>
+              <h2>Cart summary</h2>
+            </div>
+          </div>
+          <div id="cartItems" class="stack-list empty-state">
+            Your cart is empty.
+          </div>
+          <div class="totals-box">
+            <div><span>Subtotal</span><strong id="cartSubtotal">Rs. 0</strong></div>
+            <div><span>Delivery</span><strong>Cash on Delivery</strong></div>
+          </div>
+          <button class="primary-button full-width" type="button" id="checkoutButton">Login & Checkout</button>
+          <p class="support-text">Checkout captures customer login details and places the order as cash on delivery.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
 
-<div class="product">
-<img src="https://via.placeholder.com/200">
-<h3>Silk Saree</h3>
-<p>₹2499</p>
-<button onclick="addToCart('Silk Saree')">Add to Cart</button>
-</div>
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" type="button" id="closeCheckoutModal" aria-label="Close checkout">x</button>
+      <p class="eyebrow">Secure checkout</p>
+      <h2>Login during checkout</h2>
+      <p class="support-text">Enter customer details to save the account profile and place the order.</p>
+      <form id="checkoutForm" class="form-grid">
+        <label>
+          <span>Full name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span>Phone number</span>
+          <input type="tel" name="phone" required>
+        </label>
+        <label class="full-span">
+          <span>Delivery address</span>
+          <textarea name="address" rows="3" required></textarea>
+        </label>
+        <label class="full-span payment-tile">
+          <span>Payment method</span>
+          <strong>Cash on Delivery</strong>
+          <small>Enabled as the primary payment option for this demo.</small>
+        </label>
+        <button class="primary-button full-span" type="submit">Place order</button>
+      </form>
+    </div>
+  </div>
 
-</div>
+  <div id="toast" class="toast" aria-live="polite"></div>
 
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>

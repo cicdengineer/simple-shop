@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Shop | Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">SS</span>
+        <span>
+          <strong>Simple Shop</strong>
+          <small>Premium everyday retail</small>
+        </span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="account.html">My Account</a>
+        <a href="admin.html" class="is-active">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-copy">
+          <p class="eyebrow">Admin page</p>
+          <h1>Inventory management and order processing.</h1>
+          <p class="hero-text">Add products with details, cost, stock, and images. Review incoming orders and move them through processing stages.</p>
+        </div>
+      </section>
+
+      <section class="surface section-gap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Inventory</p>
+            <h2>Add products to inventory</h2>
+          </div>
+        </div>
+        <form id="inventoryForm" class="inventory-form">
+          <label><span>Product name</span><input type="text" name="name" required></label>
+          <label><span>Category</span><input type="text" name="category" required></label>
+          <label><span>Selling price</span><input type="number" name="price" min="1" required></label>
+          <label><span>Cost</span><input type="number" name="cost" min="1" required></label>
+          <label><span>Stock</span><input type="number" name="stock" min="0" required></label>
+          <label><span>SKU</span><input type="text" name="sku" required></label>
+          <label class="full-span"><span>Description</span><textarea name="description" rows="3" required></textarea></label>
+          <label><span>Badge</span><input type="text" name="badge" placeholder="New arrival"></label>
+          <label><span>Image URL</span><input type="url" name="image" placeholder="https://example.com/product.jpg"></label>
+          <label class="full-span"><span>Upload image</span><input type="file" name="imageFile" accept="image/*"></label>
+          <div class="admin-note full-span">Product images can come from a direct URL or an uploaded local file. Uploaded images are stored in browser local storage for this demo.</div>
+          <button class="primary-button full-span" type="submit">Add product</button>
+        </form>
+      </section>
+
+      <section class="surface section-gap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Inventory table</p>
+            <h2>Current products</h2>
+          </div>
+          <p class="table-note">Products added here are visible on the storefront immediately.</p>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Cost</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="surface section-gap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Orders</p>
+            <h2>Review and process orders</h2>
+          </div>
+        </div>
+        <div id="adminOrders" class="stack-list empty-state">Orders placed on the storefront will appear here.</div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
